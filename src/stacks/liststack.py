@@ -8,20 +8,21 @@ class ListStack(LinkedList):
         super().__init__()
 
 
-    def push(self, value):
+    def push(self, value: int):
         self.push_front(value)
 
 
     # alternative implementation
     def pop(self):
-        if not self.is_empty():
+        if self.head:
             result = self.head
             self.head = self.head.next
             return result.data
 
 
     def peek(self):
-        return self.head.data
+        if self.head:
+            return self.head.data
 
 
     def is_empty(self):

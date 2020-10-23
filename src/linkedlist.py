@@ -41,7 +41,7 @@ class LinkedList:
         # returns the sum of
         # [1, 1, 1, 1, 1]
         # aka 5
-        return sum(1 for node in self)
+        return sum(1 for _ in self)
 
 
     def __repr__(self) -> str:
@@ -167,7 +167,7 @@ class LinkedList:
                 if prev is not None:
                     prev.next = node.next
                 else:
-                    self.head = self.head.next
+                    self.head = node.next
                 return
             prev = node
         return
