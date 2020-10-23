@@ -1,10 +1,9 @@
 
 from typing import Optional
 
-# import src.stacks.arraystack
-
 
 class Node:
+    """ A node for a singly linked list """
     def __init__(self, data: int):
         self.data = data
         self.next: Optional[Node] = None
@@ -15,9 +14,7 @@ class Node:
 
 
 class LinkedList:
-    """
-    A singly linked list of ints.
-    """
+    """ A singly linked list of ints.  """
     def __init__(self):
         self.head: Optional[Node] = None
 
