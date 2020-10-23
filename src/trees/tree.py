@@ -2,8 +2,8 @@
 # You can supply optional "type hints"
 # for variables and arguments
 
-from typing import Iterator, Optional
 from __future__ import annotations
+from typing import Iterator, Optional
 
 
 class Node:
@@ -94,9 +94,7 @@ class Tree:
             - The value the root node will hold, by default `None`.
             If this is not given, the tree will be empty.
         """
-        self.root: Optional[Node] = None
-        if data:
-            self.root = Node(data)
+        self.root = Node(data) if data else None
 
 
     def preorder(self) -> Iterator[Node]:
@@ -132,6 +130,7 @@ class Tree:
                 yield root
                 yield from preorder_iter(root.left)
                 yield from preorder_iter(root.right)
+
         yield from preorder_iter(self.root)
 
 
@@ -168,6 +167,7 @@ class Tree:
                 yield from inorder_iter(root.left)
                 yield root
                 yield from inorder_iter(root.right)
+
         yield from inorder_iter(self.root)
 
 
@@ -205,6 +205,7 @@ class Tree:
                 yield from postorder_iter(root.right)
                 yield from postorder_iter(root.left)
                 yield root
+
         yield from postorder_iter(self.root)
 
 
