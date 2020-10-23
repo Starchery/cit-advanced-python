@@ -1,0 +1,299 @@
+ARRAYS
+=====================================
+What python calls "lists"
+Which are really dynamic arrays
+
+COMPLEXITY
+Big O Notation
+===========================================
+Search   (list.index)
+    O(n) linear time
+    check if the element 2 is in the list
+    [1, 2, 3, 4, 5]  <-- 5 steps
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  <-- 10 steps
+Access   (list[n])
+    O(1) constant time
+    [1, 2, 3]             lst[2]
+    [1, 2, 3, 4, 5, 6]    lst[2]
+
+Traverse (for n in list)
+    O(n) linear time
+Append (list.append)
+    O(n) linear time
+
+    [3, 4, 5, 6]   <- len(arr) == 4
+    Create a new array that has more space
+    Copy over the old elements into it
+    Add that new element into an empty slot
+    new = [0, 0, 0, 0, 0]
+    new = [3, 4, 5, 6, 0]
+    new[-1] = 4
+          [3, 4, 5, 6, 4]
+    [1, 2, 3].append(4)   Constant time operation
+    [1, 2, 3, 4, 5, 6, 7, ....].append(4)
+
+Remove
+    arr = [3, 4, 5, 6]
+    arr = [3, 0, 5, 6]
+    arr = [3, 5, 6, 0]
+    arr = [0, 5, 6, 0]
+    arr = [5, 6, 0, 0]
+
+    arr = [3, 4, 5, 6, 3, 5, 6, 1, 2, 3, 4, 6, 7, 3, 3]
+
+HOW TO READ BIG O
+==========================================
+    O(n)
+        This operation/structure scales linearly
+        with respect to the number of elements.
+    O(1)
+        The time this operation takes is constant.
+    O(n^2)
+        This operation/structure scales with the
+        square of the number of elements.
+
+    If some operation takes O(n) time,
+    We have to do as many sub-operations as there are elements in that structure
+
+    for an array of 50 elements,
+    we have to do 50 sub-operations
+
+    For example,
+    searching for an element in an array...
+
+        Array = [1, 2, 3]
+        Does the element '4' exist?
+
+        Array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        Does the element '10' exist?
+
+        In the worst case,
+        the complexity of this operation is O(n)
+            because we have to do n operations
+            for a list of n elements
+
+
+
+
+   Bottom | | | | | | | |     Top
+
+   Bottom [3, 1, 4, 1, 5, 9, 8]  Top -> 11, 10
+
+# A stack optimizes certain operations
+
+
+STACK DATA STRUCTURE
+========================
+Similar to a list/array
+A constraint on an array
+
+L I F O
+Last in, First out
+
+COMPLEXITY
+Big O Notation
+===========================================
+PUSH - O(1)
+    adds an element to the top of the stack
+
+POP - O(1)
+    removes the top element of the stack
+    and returns it
+
+
+   Back [22, 100, 30, 500, 10, 25, 30]  Front   --> 5, 1
+
+
+
+
+
+QUEUE DATA STRUCTURE
+============================
+Similar to an array/list
+We can only add elements to the back of the queue,
+and remove them from the front of the queue
+
+FIFO
+First in, first out
+First come, first serve
+
+Network requests
+Only 1 user can speak to a representative at a time
+
+If somebody is currently talking to a rep,
+You have to join the back of the queue
+
+Once that person finishes talking to a rep,
+the next person in line can talk to them.
+
+
+Processing data
+1.  connect to youtube.com/videourl
+2.  download that video
+3.  convert it to mp3
+4.  save the file
+
+
+What do i do if i want to process
+multiple different videos at once?
+
+After one video is done processing,
+then we can handle the next video in line.
+
+[]
+[video1]
+[video2, video1]
+[video3, video2, video1]
+[video3, video2]
+
+
+[delete site, admin, login, userData]
+
+
+ENQUEUE - O(1)
+    adds an element to the back of the queue
+
+DEQUEUE - O(1)
+    removes an element from the front of the queue
+
+
+
+Array
+=========
+When we know how much data we're gonna store
+We never deal with more than 100 at a time
+
+When we need random access
+
+
+Stack
+=========
+Whenever we want to keep track of some states
+or represent a current context
+
+Whenever we need adding and removing elements from one side
+to be fast
+
+
+Queue
+===========
+Whenever we want to sequence some processes
+and we can only process one thing at a time
+
+We want to keep track of the order of processes
+
+Whenever we need adding to one side
+and removing from the other to be fast
+
+
+
+
+LINKED LIST
+========================
+An ordered sequence of nodes
+stores the "head" node
+
+A linked list is not often used by itself
+We never really deal with "raw" linked lists
+They can be used to implement other data structures
+
+Node is an element that carries:
+    some data
+    and a link to another node
+        (this link might be None)
+
+[0, 1, 2, 3, 4]
+
+Node(1)->Node(2)->Node(3)->None
+
+Node(1)->Node(2)->Node(3)->Node(4)->None
+
+5
+
+Node(1)->Node(2)->Node(3)->Node(4)->None
+
+Node(0)->Node(1)->Node(2)->Node(3)->Node(4)->None
+
+Node(0)---------->Node(2)->Node(3)->Node(4)->None
+
+                  Node(2)->Node(3)->Node(4)->None
+
+Characteristics
+===================
+Adding an element to the beginning of our list
+is very fast
+
+Deleting an element is a lot easier than with an array
+
+No random access
+
+Takes up more space
+
+Very dynamic
+I can insert and remove items whenever i want, from wherever I want
+
+
+COMPLEXITIES
+Big(O)
+======================
+PUSH - O(1)
+    Adding an element to the beginning of the list.
+
+POP  - O(1)
+    Removing or accessing the head of the list.
+
+ACCESS - O(n)
+    Accessing the nth element of the list.
+
+INSERTION - O(n)
+    Traverse the list to get to some position
+    before inserting the element
+
+DELETION - O(n)
+    Traverse the list to get to some position
+    before deleting the element
+
+
+
+
+
+
+
+
+
+python
+"dunder methods"
+=====================
+methods that python treats specially
+or does some magic with
+
+__init__
+    creates an object
+
+__str__
+    represents our object in a user-friendly way
+
+__repr__
+    represents our object in a developer-friendly way
+
+__iter__
+    tells python how to iterate through our object
+    go through every element
+    a for loop
+
+__next__
+
+__len__
+    returns the length of some structure
+    when you call len(xs)
+
+__contains__
+    checks if some element is in a structure
+    it allows us to use the `in` operator
+
+__dict__
+
+__add__
+    how to add our object to another one
+    it lets us use the + operator on our objects
+
