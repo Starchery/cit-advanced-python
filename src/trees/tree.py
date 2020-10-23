@@ -6,6 +6,26 @@ from typing import Optional
 
 
 class Node:
+    """
+    A node of a binary tree.
+
+    A single node can represent a tree,
+    where its children have children,
+    and those children have children, etc.
+
+    A node doesn't know whether it is the
+    *root node* of a tree, however.
+    Every node thinks of itself as the "root node."
+
+    Attributes
+    ----------
+    data : int
+        The payload a node is holding.
+    left : Node, optional
+        The left child of the the node, by default None
+    right : Node, optional
+        The right child of the the node, by default None
+    """
     def __init__(self, data: int, left=None, right=None):
         self.data: int = data
         self.left: Optional[Node] = left
