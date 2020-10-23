@@ -20,12 +20,12 @@ class Node:
 
     Attributes
     ----------
-    data : int
-        The payload a node is holding.
-    left : Node, optional
-        The left child of the the node, by default None.
-    right : Node, optional
-        The right child of the the node, by default None.
+    - `data : int`
+        - The payload a node is holding.
+    - `left : Node`, optional
+        - The left child of the the node, by default `None`.
+    - `right : Node`, optional
+        - The right child of the the node, by default `None`.
     """
     def __init__(
         self,
@@ -44,12 +44,12 @@ class Node:
 
         Example
         -------
-        "Node(2)"
+        >>> "Node(2)"
 
         Returns
         -------
-        str
-            String representing the Node.
+        - `str`
+            - String representing the Node.
         """
         return f"Node({self.data})"
 
@@ -60,12 +60,12 @@ class Node:
 
         Example
         -------
-        "2"
+        >>> "2"
 
         Returns
         -------
-        str
-            String representing the Node.
+        - str
+            - String representing the Node.
         """
         return f"{self.data}"
 
@@ -80,9 +80,9 @@ class Tree:
 
     Attributes
     -----------
-    root : Optional[Node]
-        The root/start of our tree, by default None.
-        If this value is None, then the tree is empty.
+    - `root : Optional[Node]`
+        - The root/start of our tree, by default `None`.
+        If this value is `None`, then the tree is empty.
     """
     def __init__(self, data: Optional[int] = None):
         """
@@ -90,8 +90,8 @@ class Tree:
 
         Parameters
         ----------
-        data : int, optional
-            The value the root node will hold, by default None.
+        - `data : int`, optional
+            - The value the root node will hold, by default `None`.
             If this is not given, the tree will be empty.
         """
         self.root: Optional[Node] = None
@@ -105,12 +105,12 @@ class Tree:
 
         Yields
         -------
-        Node
-            Each node in the tree, in preorder.
+        - `Node`
+            - Each node in the tree, in preorder.
         """
         def preorder_iter(root: Optional[Node]) -> Iterator[Node]:
             """
-            Helper for preorder.
+            Helper for `preorder`.
 
             We can work one node at a time
             by calling this function recursively.
@@ -120,13 +120,13 @@ class Tree:
 
             Parameters
             ----------
-            root : Optional[Node]
-                The root node of the current subtree.
+            - `root : Optional[Node]`
+                - The root node of the current subtree.
 
             Yields
             -------
-            Node
-                The nodes of this subtree.
+            - `Node`
+                - The nodes of this subtree.
             """
             if root is not None:
                 yield root
@@ -141,12 +141,12 @@ class Tree:
 
         Yields
         -------
-        Node
-            Each node in the tree, in inorder.
+        - `Node`
+            - Each node in the tree, in inorder.
         """
         def inorder_iter(root: Optional[Node]) -> Iterator[Node]:
             """
-            Helper for inorder.
+            Helper for `inorder`.
 
             We can work one node at a time
             by calling this function recursively.
@@ -156,13 +156,13 @@ class Tree:
 
             Parameters
             ----------
-            root : Optional[Node]
-                The root node of the current subtree.
+            - `root : Optional[Node]`
+                - The root node of the current subtree.
 
             Yields
             -------
-            Node
-                The nodes of this subtree.
+            - `Node`
+                - The nodes of this subtree.
             """
             if root is not None:
                 yield from inorder_iter(root.left)
@@ -177,13 +177,13 @@ class Tree:
 
         Yields
         -------
-        Node
-            Each node in the tree, in postorder.
+        - `Node`
+            - Each node in the tree, in postorder.
         """
 
         def postorder_iter(root: Optional[Node]) -> Iterator[Node]:
             """
-            Helper for postorder.
+            Helper for `postorder`.
 
             We can work one node at a time
             by calling this function recursively.
@@ -193,13 +193,13 @@ class Tree:
 
             Parameters
             ----------
-            root : Optional[Node]
-                The root node of the current subtree.
+            - `root : Optional[Node]`
+                - The root node of the current subtree.
 
             Yields
             -------
-            Node
-                The nodes of this subtree.
+            - `Node`
+                - The nodes of this subtree.
             """
             if root is not None:
                 yield from postorder_iter(root.right)
@@ -214,8 +214,8 @@ class Tree:
 
         Yields
         -------
-        Node
-            The next node in the tree, ordered in preorder.
+        - `Node`
+            - The next node in the tree, ordered in preorder.
         """
         yield from self.preorder()
 
@@ -227,14 +227,14 @@ class Tree:
 
         Example
         -------
-        "Tree(Node(2), Node(3), Node(5))"
+        >>> "Tree(Node(2), Node(3), Node(5))"
 
         Returns
         -------
-        str
-            String representing the Tree in preorder.
+        - `str`
+            - String representing the Tree in preorder.
         """
-        result = "Tree("
+        result: str = "Tree("
 
         result += ", ".join(repr(node) for node in self)
 
