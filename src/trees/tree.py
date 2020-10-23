@@ -3,6 +3,7 @@
 # for variables and arguments
 
 from typing import Optional
+from __future__ import annotations
 
 
 class Node:
@@ -26,13 +27,46 @@ class Node:
     right : Node, optional
         The right child of the the node, by default None.
     """
-    def __init__(self, data: int, left=None, right=None):
-        self.data: int = data
-        self.left: Optional[Node] = left
-        self.right: Optional[Node] = right
-    def __repr__(self):
+    def __init__(
+        self,
+        data: int,
+        left: Optional[Node] = None,
+        right: Optional[Node] = None
+    ):
+        self.data = data
+        self.left = left
+        self.right = right
+
+
+    def __repr__(self) -> str:
+        """
+        Dev-friendly representation of a Node.
+
+        Example
+        -------
+        "Node(2)"
+
+        Returns
+        -------
+        str
+            String representing the Node.
+        """
         return f"Node({self.data})"
-    def __str__(self):
+
+
+    def __str__(self) -> str:
+        """
+        User-friendly representation of a Node.
+
+        Example
+        -------
+        "2"
+
+        Returns
+        -------
+        str
+            String representing the Node.
+        """
         return f"{self.data}"
 
 
@@ -49,15 +83,14 @@ class Tree:
     root : Optional[Node]
         The root/start of our tree, by default None.
         If this value is None, then the tree is empty.
+
+    Parameters
+    ----------
+    data : int, optional
+        The value the root node will hold, by default None.
+        If this is not given, the tree will be empty.
     """
     def __init__(self, data: Optional[int] = None):
-        """
-        Parameters
-        ----------
-        data : int, optional
-            The value the root node will hold, by default None.
-            If this is not given, the tree will be empty.
-        """
         self.root: Optional[Node] = None
         if data:
             self.root = Node(data)
