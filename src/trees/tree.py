@@ -37,6 +37,19 @@ class Node:
 
 
 class Tree:
+    """
+    A binary tree of Nodes.
+
+    Every node thinks of itself as the root node of its own tree.
+    This class imposes structure on a collection of nodes
+    by keeping track of which one is the "real root."
+
+    Attributes
+    -----------
+    root : Optional[Node]
+        The root/start of our tree, by default None.
+        If this value is None, then the tree is empty.
+    """
     def __init__(self, data: Optional[int] = None):
         self.root: Optional[Node] = None
         if data:
