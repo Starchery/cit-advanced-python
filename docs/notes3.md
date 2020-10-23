@@ -48,3 +48,11 @@ If you're on an outdated version of the repository,
 you can "pull" from another, more recent version
 to see any new changes
 
+
+### Clone
+
+Clones a repository to your computer
+so you can work on a local version of it.
+
+You use this whenever you want to download
+a repository off of Github.
