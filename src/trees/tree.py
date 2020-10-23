@@ -2,7 +2,7 @@
 # You can supply optional "type hints"
 # for variables and arguments
 
-from typing import Optional
+from typing import Iterator, Optional
 from __future__ import annotations
 
 
@@ -83,20 +83,23 @@ class Tree:
     root : Optional[Node]
         The root/start of our tree, by default None.
         If this value is None, then the tree is empty.
-
-    Parameters
-    ----------
-    data : int, optional
-        The value the root node will hold, by default None.
-        If this is not given, the tree will be empty.
     """
     def __init__(self, data: Optional[int] = None):
+        """
+        Create a new Tree.
+
+        Parameters
+        ----------
+        data : int, optional
+            The value the root node will hold, by default None.
+            If this is not given, the tree will be empty.
+        """
         self.root: Optional[Node] = None
         if data:
             self.root = Node(data)
 
 
-    def preorder(self):
+    def preorder(self) -> Iterator[Node]:
         """
         Iterator over the nodes of the Tree in preorder.
 
@@ -105,7 +108,7 @@ class Tree:
         Node
             Each node in the tree, in preorder.
         """
-        def preorder_iter(root: Optional[Node]):
+        def preorder_iter(root: Optional[Node]) -> Iterator[Node]:
             """
             Helper for preorder.
 
@@ -132,7 +135,7 @@ class Tree:
         yield from preorder_iter(self.root)
 
 
-    def inorder(self):
+    def inorder(self) -> Iterator[Node]:
         """
         Iterator over the nodes of the Tree in inorder.
 
@@ -141,7 +144,7 @@ class Tree:
         Node
             Each node in the tree, in inorder.
         """
-        def inorder_iter(root: Optional[Node]):
+        def inorder_iter(root: Optional[Node]) -> Iterator[Node]:
             """
             Helper for inorder.
 
@@ -168,7 +171,7 @@ class Tree:
         yield from inorder_iter(self.root)
 
 
-    def postorder(self):
+    def postorder(self) -> Iterator[Node]:
         """
         Iterator over the nodes of the Tree in postorder.
 
@@ -178,7 +181,7 @@ class Tree:
             Each node in the tree, in postorder.
         """
 
-        def postorder_iter(root: Optional[Node]):
+        def postorder_iter(root: Optional[Node]) -> Iterator[Node]:
             """
             Helper for postorder.
 
@@ -205,7 +208,7 @@ class Tree:
         yield from postorder_iter(self.root)
 
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Node]:
         """
         Preorder traversal over Nodes.
 
