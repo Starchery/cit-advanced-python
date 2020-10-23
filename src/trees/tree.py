@@ -51,12 +51,27 @@ class Tree:
         If this value is None, then the tree is empty.
     """
     def __init__(self, data: Optional[int] = None):
+        """
+        Parameters
+        ----------
+        data : int, optional
+            The value the root node will hold, by default None
+            If this is not given, the tree will be empty.
+        """
         self.root: Optional[Node] = None
         if data:
             self.root = Node(data)
 
 
     def preorder(self):
+        """
+        Iterator over the nodes of the Tree in preorder.
+
+        Yields
+        -------
+        Node
+            Each node in the tree, in preorder.
+        """
         def preorder_iter(root: Optional[Node]):
             if root is not None:
                 yield root
@@ -66,6 +81,14 @@ class Tree:
 
 
     def inorder(self):
+        """
+        Iterator over the nodes of the Tree in inorder.
+
+        Yields
+        -------
+        Node
+            Each node in the tree, in inorder.
+        """
         def inorder_iter(root: Optional[Node]):
             if root is not None:
                 yield from inorder_iter(root.left)
@@ -75,6 +98,15 @@ class Tree:
 
 
     def postorder(self):
+        """
+        Iterator over the nodes of the Tree in postorder.
+
+        Yields
+        -------
+        Node
+            Each node in the tree, in postorder.
+        """
+
         def postorder_iter(root: Optional[Node]):
             if root is not None:
                 yield from postorder_iter(root.right)
@@ -84,11 +116,31 @@ class Tree:
 
 
     def __iter__(self):
-        """ Preorder traversal """
+        """
+        Preorder traversal over Nodes.
+
+        Yields
+        -------
+        Node
+            The next node in the tree, ordered in preorder.
+        """
         yield from self.preorder()
 
 
     def __repr__(self) -> str:
+        """
+        Dev-friendly representation of the Tree.
+        Lists nodes in preorder.
+
+        Example
+        -------
+        "Tree(Node(2), Node(3), Node(5))"
+
+        Returns
+        -------
+        str
+            String representing the Tree in preorder.
+        """
         result = "Tree("
 
         result += ", ".join(repr(node) for node in self)
