@@ -16,7 +16,7 @@ This will allow you to use "git" from your terminal/command prompt.
 3. `$ cd cit-advanced-python`
 4. (Optional, but good habit) Create and activate a virtual environment
 5. `$ pip install -r requirements.txt`
-6. (Optional) Check that everything is working by running `$ pytest -v`. This should run our [tests](tests/) and show the output. If anything goes wrong here, let me know.
+6. (Optional) Check that everything is working by running `$ pytest -v`. This should run our [tests](tests/) and show the output. If anything goes wrong here, [let me know.](mailto:randolph.henry.work@gmail.com)
 7. (Optional) Read the notes we've taken so far. They're in the [docs](docs/) folder.
 
 ---
