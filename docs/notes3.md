@@ -15,7 +15,7 @@ to a project
 * Gitlab
 * Bitbucket
 
-### Init
+### **Init**
 
 Initializes a git repository
 
@@ -23,12 +23,12 @@ Tells "git" to keep track of the changes you make
 to files that you add to the repository
 
 
-### Add
+### **Add (Staging)**
 
 Adding a file allows us to keep track of changes made to it
 
 
-### Commit
+### **Commit**
 
 Make the changes you've made to files part of the
 project history
@@ -36,20 +36,20 @@ project history
 You're "ahead" of the project after you commit.
 
 
-### Push
+### **Push**
 
 Update the repository to reflect the changes
 you made in your commits
 
 
-### Pull
+### **Pull**
 
 If you're on an outdated version of the repository,
 you can "pull" from another, more recent version
 to see any new changes
 
 
-### Clone
+### **Clone**
 
 Clones a repository to your computer
 so you can work on a local version of it.
