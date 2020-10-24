@@ -78,23 +78,32 @@ class Bst(Tree):
             bool
                 Whether the insertion was successful.
             """
-            if new_data == subtree.data:
-                return False
+            if new_data == subtree.data:  # the data already exists!
+                return False  # insertion failed, nothing to do
             elif new_data < subtree.data:
                 if subtree.left is None:
+                    # insert a new node in the empty space
+                    # where the subtree's left child would be
                     subtree.left = Node(new_data)
-                    return True
-                else:
+                    return True  # insertion successful
+                else: # the subtree has a left child
+                    # recurse, treating the left child
+                    # as its own subtree and inserting
+                    # the data into it
                     return insert_node(subtree.left)
-            else:
+            else:  # new_data > subtree.data
                 if subtree.right is None:
                     subtree.right = Node(new_data)
                     return True
                 else:
                     return insert_node(subtree.right)
 
+        # IMPORTANT: we need this check here
+        # so we know to update the BST's
+        # `root` attribute
         if self.root is None:
             self.root = Node(new_data)
             return True
 
+        # The kickoff point. Start off with the root node.
         return insert_node(self.root)
