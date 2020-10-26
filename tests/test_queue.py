@@ -32,7 +32,7 @@ def test_peek():
     s.enqueue(3)
     assert s.peek() == 3
 
-def test_dequeueping_changes_length():
+def test_dequeueing_changes_length():
     s = ArrayQueue()
     s.enqueue(3)
     s.enqueue(4)
