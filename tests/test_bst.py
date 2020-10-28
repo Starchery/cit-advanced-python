@@ -30,7 +30,7 @@ def test_bst_inherits_tree():
     tree = Bst(5)
     tree.root.left = Node(2)
     tree.root.right = Node(7)
-    lst = [node.data for node in tree]
+    lst = [node.data for node in tree.preorder()]
     assert lst == [5, 2, 7]
 
 
@@ -53,7 +53,7 @@ def test_insert_order(example_tree):
     example_tree.insert(5)
     example_tree.insert(3)
 
-    lst = [node.data for node in example_tree]
+    lst = [node.data for node in example_tree.preorder()]
     assert lst == [5, 2, 1, 4, 3, 8, 7, 6, 9]
 
 
@@ -65,8 +65,8 @@ def test_insert_order1(example_tree):
     tree.insert(5)
     tree.insert(9)
     tree.insert(7)
-    lst = [node.data for node in tree]
-    examplelst = [node.data for node in example_tree]
+    lst = [node.data for node in tree.preorder()]
+    examplelst = [node.data for node in example_tree.preorder()]
     assert lst != examplelst
 
 
