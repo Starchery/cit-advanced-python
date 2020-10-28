@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Iterator, Optional
 from src.trees.tree import Tree, Node
 
 class Bst(Tree):
@@ -35,9 +35,24 @@ class Bst(Tree):
         super().__init__(data)
 
 
-    def search(self, target: int) -> bool:
-        """ TODO: implement """
-        raise NotImplementedError
+    def __contains__(self, target: int) -> bool:
+        def search_node(subtree: Optional[Node]) -> bool:
+            if subtree is None:
+                return False
+            elif target == subtree.data:
+                return True
+            elif target > subtree.data:
+                return search_node(subtree.right)
+            else:  # target < subtree.data
+                return search_node(subtree.left)
+
+        return search_node(self.root)
+
+
+    def __iter_(self) -> Iterator[Node]:
+        yield from self.inorder()
+
+
 
 
     def insert(self, new_data: int) -> bool:
@@ -57,26 +72,26 @@ class Bst(Tree):
         """
         def insert_node(subtree: Optional[Node]) -> bool:
             """
-            Helper function.
+                Helper function.
 
-            Inserts the `new_data` into the given
-            subtree recursively.
+                Inserts the `new_data` into the given
+                subtree recursively.
 
-            We work on one node/subtree at a time
-            using recursion.
+                We work on one node/subtree at a time
+                using recursion.
 
-            To kick it off, we call this function
-            with the root node of the BST.
+                To kick it off, we call this function
+                with the root node of the BST.
 
-            Parameters
-            ----------
-            subtree : Optional[Node]
-                The current node.
+                Parameters
+                ----------
+                subtree : Optional[Node]
+                    The current node.
 
-            Returns
-            -------
-            bool
-                Whether the insertion was successful.
+                Returns
+                -------
+                bool
+                    Whether the insertion was successful.
             """
             if new_data == subtree.data:  # the data already exists!
                 return False  # insertion failed, nothing to do
@@ -107,3 +122,28 @@ class Bst(Tree):
 
         # The kickoff point. Start off with the root node.
         return insert_node(self.root)
+
+
+    def height(self) -> int:
+        """
+        Finds the height of a BST.
+        The height is defined to be the number of levels.
+
+        The empty tree has height 0.
+        A node with no children has height 1.
+        A node with children has height (1 + MAX(height Left, height Right)
+
+        Returns
+        -------
+        int
+            The height of the tree.
+        """
+        def height_node(subtree: Optional[Node]) -> int:
+            if subtree is None:
+                return 0
+            else:
+                left_height = height_node(subtree.left)
+                right_height = height_node(subtree.right)
+                return 1 + max(left_height, right_height)
+
+        return height_node(self.root)
