@@ -49,7 +49,7 @@ class Bst(Tree):
         return search_node(self.root)
 
 
-    def __iter_(self) -> Iterator[Node]:
+    def __iter__(self) -> Iterator[Node]:
         yield from self.inorder()
 
 
