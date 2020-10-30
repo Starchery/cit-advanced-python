@@ -27,16 +27,16 @@ class Node:
     - `right : Node`, optional
         - The right child of the the node, by default `None`.
     """
+
     def __init__(
         self,
         data: int,
         left: Optional[Node] = None,
-        right: Optional[Node] = None
+        right: Optional[Node] = None,
     ):
         self.data = data
         self.left = left
         self.right = right
-
 
     def __repr__(self) -> str:
         """
@@ -52,7 +52,6 @@ class Node:
             - String representing the Node.
         """
         return f"Node({self.data})"
-
 
     def __str__(self) -> str:
         """
@@ -84,6 +83,7 @@ class Tree:
         - The root/start of our tree, by default `None`.
         If this value is `None`, then the tree is empty.
     """
+
     def __init__(self, data: Optional[int] = None):
         """
         Create a new Tree.
@@ -96,7 +96,6 @@ class Tree:
         """
         self.root = Node(data) if data else None
 
-
     def preorder(self) -> Iterator[Node]:
         """
         Iterator over the nodes of the Tree in preorder.
@@ -106,6 +105,7 @@ class Tree:
         - `Node`
             - Each node in the tree, in preorder.
         """
+
         def preorder_iter(root: Optional[Node]) -> Iterator[Node]:
             """
             Helper for `preorder`.
@@ -133,7 +133,6 @@ class Tree:
 
         yield from preorder_iter(self.root)
 
-
     def inorder(self) -> Iterator[Node]:
         """
         Iterator over the nodes of the Tree in inorder.
@@ -143,6 +142,7 @@ class Tree:
         - `Node`
             - Each node in the tree, in inorder.
         """
+
         def inorder_iter(root: Optional[Node]) -> Iterator[Node]:
             """
             Helper for `inorder`.
@@ -169,7 +169,6 @@ class Tree:
                 yield from inorder_iter(root.right)
 
         yield from inorder_iter(self.root)
-
 
     def postorder(self) -> Iterator[Node]:
         """
@@ -208,7 +207,6 @@ class Tree:
 
         yield from postorder_iter(self.root)
 
-
     def __iter__(self) -> Iterator[Node]:
         """
         Preorder traversal over Nodes.
@@ -219,7 +217,6 @@ class Tree:
             - The next node in the tree, ordered in preorder.
         """
         yield from self.preorder()
-
 
     def __repr__(self) -> str:
         """
@@ -241,3 +238,16 @@ class Tree:
 
         result += ")"
         return result
+
+    def __str__(self) -> str:
+        """
+        User friendly representation of a Tree.
+
+        Returns
+        -------
+        str
+            String representing the tree.
+        """
+        from .util import pretty_print
+
+        return pretty_print(self)

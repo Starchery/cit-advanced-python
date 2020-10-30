@@ -1,26 +1,28 @@
-
 from typing import Optional
 
 
 class Node:
     """ A node for a singly linked list """
+
     def __init__(self, data: int):
         self.data = data
         self.next: Optional[Node] = None
+
     def __repr__(self):
         return f"Node({self.data})"
+
     def __str__(self):
         return f"{self.data}"
 
 
 class LinkedList:
     """ A singly linked list of ints.  """
+
     def __init__(self):
         self.head: Optional[Node] = None
 
-
     def __iter__(self):
-        """ Useful for writing data structures
+        """Useful for writing data structures
         allows us to use for loops to iterate
         over values in our structure
 
@@ -30,7 +32,6 @@ class LinkedList:
         while cursor is not None:
             yield cursor
             cursor = cursor.next
-
 
     def __len__(self) -> int:
         """ Returns the length of a linked list.  """
@@ -42,7 +43,6 @@ class LinkedList:
         # [1, 1, 1, 1, 1]
         # aka 5
         return sum(1 for _ in self)
-
 
     def __repr__(self) -> str:
         """
@@ -56,7 +56,6 @@ class LinkedList:
         result += "->None)"
         return result
 
-
     def __str__(self) -> str:
         """
         [1, 2, 3]
@@ -69,9 +68,8 @@ class LinkedList:
         result += "]"
         return result
 
-
     def __contains__(self, target: int) -> bool:
-        """ Tests if some element is in our list.
+        """Tests if some element is in our list.
 
         Args:
             target (int): the search value.
@@ -85,15 +83,12 @@ class LinkedList:
 
         return False
 
-
     def contains(self, target: int) -> bool:
         return target in self
-
 
     def print_list(self):
         for node in self:
             print(node.data)
-
 
     def push_front(self, element: int):
         """
@@ -108,8 +103,6 @@ class LinkedList:
         node = Node(element)  # creating a new node
         node.next = self.head
         self.head = node
-
-
 
     def insert_after(self, prev_node: Node, new_data: int):
         """
@@ -132,9 +125,8 @@ class LinkedList:
         node.next = prev_node.next
         prev_node.next = node
 
-
     def append(self, new_data: int):
-        """ 1->2->3
+        """1->2->3
         Node(1)->Node(2)->Node(3)->None
 
         Args:
@@ -149,7 +141,6 @@ class LinkedList:
             lastnode = lastnode.next
 
         self.insert_after(lastnode, new_data)
-
 
     def remove(self, target: int):
         """
@@ -171,4 +162,3 @@ class LinkedList:
                 return
             prev = node
         return
-

@@ -1,4 +1,5 @@
-from src.linkedlist import *
+# from src.linkedlist import *
+from ..linkedlist import *
 
 # Inheritance
 # A ListStack IS A LinkedList

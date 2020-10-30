@@ -30,15 +30,36 @@ A binary tree with the following constraints.
                        (7)
 ```
 
+# Inverting
+
+Create a mirror image
+over the "y"-axis
+
+Inverting a BST means it is no
+longer considered a BST.
+
+It fails to uphold the condition.
+
 
 ```
+             |
             (5)
           ___|___
-         /       \
-        /         \
-      (2)         (8)
-         \        /  \
-         (4)    (7)  (9)
+         /   |   \
+        /    |    \
+      (2)    |    (8)
+         \   |    /  \
+         (4) |  (7)  (9)
+
+
+             |
+            (5)
+          ___|___
+         /   |   \
+        /    |    \
+      (8)    |    (2)
+     /   \   |    /
+   (9)   (7) |  (4)
 ```
 
 ```
